@@ -729,23 +729,10 @@ function parseJD() {
     }
     return '';
   };
-  title    = tryMatch([/채용\s*포지션[^
-]*?[-:：]\s*(.+)/i, /포지션[^
-]*?[-:：]\s*(.+)/i, /직\s*무[^
-]*?[-:：]\s*(.+)/i, /모집\s*직무[^
-]*?[-:：]\s*(.+)/i, /position[^
-]*?[-:：]\s*(.+)/i], raw);
-  empType  = tryMatch([/고용\s*형태[^
-]*?[-:：]\s*(.+)/i, /employment[^
-]*?[-:：]\s*(.+)/i], raw);
-  location = tryMatch([/근\s*무\s*지[^
-]*?[-:：]\s*(.+)/i, /위\s*치[^
-]*?[-:：]\s*(.+)/i, /location[^
-]*?[-:：]\s*(.+)/i], raw);
-  salary   = tryMatch([/연\s*봉[^
-]*?[-:：]\s*(.+)/i, /급\s*여[^
-]*?[-:：]\s*(.+)/i, /salary[^
-]*?[-:：]\s*(.+)/i, /(\d+억?\s*[~～]\s*\d+억)/i], raw);
+  title    = tryMatch([/채용\s*포지션[^\r\n]*?[-:：]\s*(.+)/i, /포지션[^\r\n]*?[-:：]\s*(.+)/i, /직\s*무[^\r\n]*?[-:：]\s*(.+)/i, /모집\s*직무[^\r\n]*?[-:：]\s*(.+)/i, /position[^\r\n]*?[-:：]\s*(.+)/i], raw);
+  empType  = tryMatch([/고용\s*형태[^\r\n]*?[-:：]\s*(.+)/i, /employment[^\r\n]*?[-:：]\s*(.+)/i], raw);
+  location = tryMatch([/근\s*무\s*지[^\r\n]*?[-:：]\s*(.+)/i, /위\s*치[^\r\n]*?[-:：]\s*(.+)/i, /location[^\r\n]*?[-:：]\s*(.+)/i], raw);
+  salary   = tryMatch([/연\s*봉[^\r\n]*?[-:：]\s*(.+)/i, /급\s*여[^\r\n]*?[-:：]\s*(.+)/i, /salary[^\r\n]*?[-:：]\s*(.+)/i, /(\d+억?\s*[~～]\s*\d+억)/i], raw);
   // JD 섹션 추출
   const sectionDefs = [
     { key:'담당 업무', re:/담당\s*업무(.+?)(?=필수\s*자격|자격\s*요건|우대\s*사항|복지|혜택|$)/is },
